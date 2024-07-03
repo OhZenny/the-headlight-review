@@ -1,0 +1,47 @@
+<script>
+
+  
+//Add a back link to home page 
+document.addEventListener('DOMContentLoaded', function() {
+    // Create the link element
+    var linkElement = document.createElement('a');
+    linkElement.href = '/issues';
+    linkElement.innerText = 'View other issues';
+   linkElement.classList.add('issues-backlink');
+
+    // Find the .blog-item-top-wrapper element
+    var blogItemTitle = document.querySelector('.blog-item-title');
+    
+    // Insert the link element before the .blog-item-top-wrapper element
+    if (blogItemTitle) {
+        blogItemTitle.parentNode.insertBefore(linkElement, blogItemTitle);
+    } else {
+        console.error('Element .blog-item-title not found');
+    }
+});
+
+</script>
+
+<style>
+/*Align left top-wrapper to start of body*/
+.blog-item-wrapper .blog-item-top-wrapper {
+  	position:relative;
+  	display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+
+ 	width: 75%;
+    float: inline-end;
+  	z-index:2;
+  }
+  
+  
+  
+ /*Style the link that goes back to collection*/ 
+  .issues-backlink{
+  font-size: 22px;
+  line-height: 32px;
+  color: #81807D /*Neutral-10*/;
+  cursor:pointer;
+  }
+</style>
