@@ -1,0 +1,186 @@
+
+ /*Style blog top wrapper background*/
+  .blog-item-title-wrapper::before{
+  content:'';
+  display:flex;
+  position:absolute;
+  top:0;
+  width:100vw;
+  height:100%;
+  background-color:rgba(252, 248, 232, 0.1);
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  z-index:0;
+box-shadow:0px 10px 15px -3px rgba(0,0,0,0.1)
+    }
+  
+/*Style title wrapper*/ 
+  .blog-item-title-wrapper{
+  display:flex;
+  flex-direction:row;
+  order:2;
+  min-height:30svh;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--outline);
+  }
+  
+  .blog-item-image-wrapper{
+  max-height: 30svh;}
+/*Fix render order*/
+.tweak-blog-item-meta-position-above-title .blog-item-wrapper .blog-item-title {
+    order: revert;
+  	display: flex;
+    flex-direction: column;
+  position:relative;
+  z-index:0;
+}
+  
+/*Thumbnail Image column*/
+img.blog-item-image {
+  padding-left: 24px;
+    box-sizing: border-box;
+    object-fit: cover;
+  height:100%;
+  width:100%;
+  
+} 
+  
+ /* blog share */ 
+  .blog-item-share-wrapper{
+  margin-top:24px;}
+  
+/*Author typography*/
+  .blog-item-wrapper .blog-meta-item--author {
+  font-size:2rem;
+  line-height:2em;
+  }
+  
+  .author-name{
+  font-size:1.25rem !important;
+   line-height:1.2em !important;
+    font-weight:700 !important;
+  }
+  .author-name-title{
+  font-size:1rem !important; }
+  
+/*Paragraph spacing*/
+  p:not(:last-child) {
+    margin-bottom: 2rem; /* Add 2rem margin between paragraphs */
+}
+ 
+/*Make by and date line verticle*/
+ .tweak-blog-item-show-date .blog-item-wrapper .blog-item-author-date-wrapper, .tweak-blog-item-show-author-name .blog-item-wrapper .blog-item-author-date-wrapper {
+    display: flex;
+   flex-direction:column-reverse;
+}
+
+/*Remove delimiter after Date*/
+.tweak-blog-item-delimiter-space .blog-item-wrapper .blog-item-category-wrapper:not(:last-child)::after, .tweak-blog-item-delimiter-space .blog-item-wrapper .blog-item-tag-wrapper:not(:last-child)::after {
+    content: "—";
+}
+/*Grow read time and share button*/
+  .blog-item-share-wrapper{
+    flex-grow:1;
+    display:flex;
+    align-items:flex-end;
+  }
+  
+ /*Set article width without messing other blog collections*/ 
+  .tweak-blog-item-width-custom .blog-item-wrapper .blog-item-inner-wrapper{
+  width: 70rem;  
+  }
+  #yui_3_17_2_1_1717627252269_1946{display:hidden}
+  
+/*Quote block*/  
+.sqs-block-quote blockquote{
+  background-color: transparent !important;
+  color: inherit !important;
+  border-inline-start: none !important;
+  font-weight:700;
+  }  
+/*Article Callout*/
+blockquote {
+  background-color:#F6E6AC;
+  color: #1C1703;
+  border-radius: 0px 4px 4px 0px;
+  border-inline-start: 6px solid #EDCD5A !important; 
+  margin:0;
+  padding: 16px;
+}
+
+/*Poems*/
+  .stanza{
+  box-sizing:border-box;
+  display: flex;
+  flex-direction: row;
+  }
+
+  .stanza:not(:last-child){
+  margin-bottom:5rem; /*space between stanza*/
+  }
+  .poem-line{}
+  .align-end{
+  text-align: end;
+  display:block;
+  }
+  
+  
+/*Author block*/
+  .author-name{
+  font-size:22px;
+  line-height:32px;}
+ 
+  
+/*Read Precentage*/  
+ #reading-progress-container {
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: var(--surface);
+    z-index: 9999;
+}
+
+#reading-progress-bar {
+    height: 100%;
+    width: 0;
+    background-color: var(--headerBorderColor); /* Change this color to match your site's theme */
+  transition: width 200ms ease-out 100ms;
+}
+
+  
+  
+/*Less than tablet size*/  
+@media screen and (max-width:767px) {
+  
+/*make wrapper go vertical & give gap*/  
+  .blog-item-title-wrapper{
+  flex-direction: column;
+  gap: 16px;}
+  
+/*Make title go edge to edge*/
+  .blog-item-title{
+  width:revert;}
+  
+  
+/*make image wrapper grow*/
+  .blog-item-image-wrapper{
+  width:auto}
+ 
+/*make image respect aspect and cover*/
+  .blog-item-image{
+  padding-left:0 !important;
+  object-fit:cover !important;
+  aspect-ratio: 3 / 2;
+  }
+ 
+  
+ /*correct spacing between share and author*/
+  .blog-item-share-wrapper{
+  flex-direction: column;
+    align-items:revert;
+    gap: 12px;
+    margin-top: 24px;}
